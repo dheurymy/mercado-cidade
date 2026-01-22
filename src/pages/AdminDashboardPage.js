@@ -22,7 +22,7 @@ function AdminDashboardPage() {
         <button
           onClick={() => {
             localStorage.removeItem('currentUser');
-            window.location.href = '/login';
+            window.location.href = '/feirante-area';
           }}
           style={{ background: '#e74c3c', color: '#fff', border: 'none', borderRadius: 8, padding: '10px 22px', fontWeight: 700, fontSize: 16, cursor: 'pointer', width: '100%', maxWidth: 180 }}
         >
