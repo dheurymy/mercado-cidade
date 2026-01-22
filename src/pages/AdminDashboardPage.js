@@ -16,51 +16,51 @@ function AdminDashboardPage() {
   }, []);
 
   return (
-    <div style={{ maxWidth: 1100, margin: '40px auto', padding: 24 }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
-        <h2 style={{ color: '#e67e22', fontWeight: 900 }}>Dashboard do Administrador</h2>
+    <div style={{ maxWidth: 1100, margin: '40px auto', padding: 12 }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24, gap: 12 }}>
+        <h2 style={{ color: '#e67e22', fontWeight: 900, fontSize: 24, marginBottom: 8 }}>Dashboard do Administrador</h2>
         <button
           onClick={() => {
             localStorage.removeItem('currentUser');
             window.location.href = '/login';
           }}
-          style={{ background: '#e74c3c', color: '#fff', border: 'none', borderRadius: 8, padding: '10px 22px', fontWeight: 700, fontSize: 16, cursor: 'pointer' }}
+          style={{ background: '#e74c3c', color: '#fff', border: 'none', borderRadius: 8, padding: '10px 22px', fontWeight: 700, fontSize: 16, cursor: 'pointer', width: '100%', maxWidth: 180 }}
         >
           <i className="fas fa-sign-out-alt" style={{ marginRight: 8 }}></i> Sair
         </button>
       </div>
-      <div style={{ display: 'flex', gap: 24, marginBottom: 32 }}>
-        <div style={{ background: '#fffbe6', borderRadius: 10, padding: 24, flex: 1, boxShadow: '0 2px 12px #0001' }}>
-          <h3 style={{ color: '#1e7d34', fontWeight: 700 }}>Feirantes</h3>
-          <div style={{ fontSize: 32, fontWeight: 900 }}>{feirantes.length}</div>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, marginBottom: 24 }}>
+        <div style={{ background: '#fffbe6', borderRadius: 10, padding: 18, flex: 1, minWidth: 160, boxShadow: '0 2px 12px #0001', marginBottom: 8 }}>
+          <h3 style={{ color: '#1e7d34', fontWeight: 700, fontSize: 16 }}>Feirantes</h3>
+          <div style={{ fontSize: 26, fontWeight: 900 }}>{feirantes.length}</div>
         </div>
-        <div style={{ background: '#e6f7ff', borderRadius: 10, padding: 24, flex: 1, boxShadow: '0 2px 12px #0001' }}>
-          <h3 style={{ color: '#2186eb', fontWeight: 700 }}>Boxes</h3>
-          <div style={{ fontSize: 32, fontWeight: 900 }}>{boxes.length}</div>
+        <div style={{ background: '#e6f7ff', borderRadius: 10, padding: 18, flex: 1, minWidth: 160, boxShadow: '0 2px 12px #0001', marginBottom: 8 }}>
+          <h3 style={{ color: '#2186eb', fontWeight: 700, fontSize: 16 }}>Boxes</h3>
+          <div style={{ fontSize: 26, fontWeight: 900 }}>{boxes.length}</div>
         </div>
-        <div style={{ background: '#fff0f6', borderRadius: 10, padding: 24, flex: 1, boxShadow: '0 2px 12px #0001' }}>
-          <h3 style={{ color: '#e74c3c', fontWeight: 700 }}>Produtos</h3>
-          <div style={{ fontSize: 32, fontWeight: 900 }}>{produtos.length}</div>
+        <div style={{ background: '#fff0f6', borderRadius: 10, padding: 18, flex: 1, minWidth: 160, boxShadow: '0 2px 12px #0001', marginBottom: 8 }}>
+          <h3 style={{ color: '#e74c3c', fontWeight: 700, fontSize: 16 }}>Produtos</h3>
+          <div style={{ fontSize: 26, fontWeight: 900 }}>{produtos.length}</div>
         </div>
       </div>
       <AdminAnalytics />
-      <div style={{ marginBottom: 24, display: 'flex', gap: 12, alignItems: 'center', maxWidth: 600 }}>
-        <input value={busca} onChange={e => setBusca(e.target.value)} placeholder="Buscar feirante por nome ou CPF..." style={{ flex: 1, padding: 14, borderRadius: 8, border: '1px solid #ccc', fontSize: 18 }} />
-        <button onClick={() => setBuscaAtiva(busca)} style={{ background: '#e67e22', color: '#fff', border: 'none', borderRadius: 8, padding: '12px 24px', fontWeight: 700, fontSize: 18, cursor: 'pointer' }}>Pesquisar</button>
+      <div style={{ marginBottom: 20, display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center', maxWidth: 600 }}>
+        <input value={busca} onChange={e => setBusca(e.target.value)} placeholder="Buscar feirante por nome ou CPF..." style={{ flex: 1, padding: 12, borderRadius: 8, border: '1px solid #ccc', fontSize: 16, minWidth: 0 }} />
+        <button onClick={() => setBuscaAtiva(busca)} style={{ background: '#e67e22', color: '#fff', border: 'none', borderRadius: 8, padding: '10px 18px', fontWeight: 700, fontSize: 16, cursor: 'pointer', minWidth: 110 }}>Pesquisar</button>
       </div>
-      <div style={{ background: '#fff', borderRadius: 10, padding: 24, boxShadow: '0 2px 12px #0001' }}>
-        <h3 style={{ color: '#e67e22', fontWeight: 700, marginBottom: 18 }}>Resumo de Feirantes</h3>
-        <table style={{ width: '100%', fontSize: 16, borderCollapse: 'collapse' }}>
-          <thead>
-            <tr style={{ background: '#f8f8f8' }}>
-              <th style={{ padding: 10, textAlign: 'left' }}>Nome</th>
-              <th style={{ padding: 10, textAlign: 'left' }}>CPF</th>
-              <th style={{ padding: 10, textAlign: 'left' }}>Box</th>
-              <th style={{ padding: 10, textAlign: 'left' }}>Produtos</th>
-              <th style={{ padding: 10, textAlign: 'left' }}>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
+      <div style={{ background: '#fff', borderRadius: 10, padding: 10, boxShadow: '0 2px 12px #0001', overflowX: 'auto' }}>
+        <h3 style={{ color: '#e67e22', fontWeight: 700, marginBottom: 14, fontSize: 18 }}>Resumo de Feirantes</h3>
+        <div style={{ width: '100%', minWidth: 320 }}>
+          <div style={{ display: 'none', marginBottom: 8 }} className="admin-table-header-desktop">
+            <div style={{ display: 'flex', fontWeight: 700, fontSize: 14, background: '#f8f8f8', padding: 8 }}>
+              <div style={{ flex: 2 }}>Nome</div>
+              <div style={{ flex: 2 }}>CPF</div>
+              <div style={{ flex: 3 }}>Box</div>
+              <div style={{ flex: 1 }}>Produtos</div>
+              <div style={{ flex: 2 }}>Ações</div>
+            </div>
+          </div>
+          <div>
             {feirantes.filter(f => {
               const termo = buscaAtiva.toLowerCase();
               if (!termo) return true;
@@ -101,19 +101,32 @@ function AdminDashboardPage() {
                 return false;
               }).length, 0);
               return (
-                <tr key={f._id} style={{ borderBottom: '1px solid #eee' }}>
-                  <td style={{ padding: 10 }}>{f.nome}</td>
-                  <td style={{ padding: 10 }}>{f.cpf}</td>
-                  <td style={{ padding: 10 }}>{boxInfo}</td>
-                  <td style={{ padding: 10 }}>{totalProdutos}</td>
-                  <td style={{ padding: 10 }}>
-                    <button onClick={() => window.location.href = `/admin/feirante/${f._id}`} style={{ background: '#e67e22', color: '#fff', border: 'none', borderRadius: 6, padding: '8px 14px', fontWeight: 600, cursor: 'pointer' }}>Editar</button>
-                  </td>
-                </tr>
+                <div key={f._id} style={{
+                  borderBottom: '1px solid #eee',
+                  marginBottom: 8,
+                  paddingBottom: 8,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 2
+                }}>
+                  {/* Linha 1: Nome, CPF, Box */}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                    <div style={{ flex: 2, minWidth: 100, fontWeight: 600 }}>{f.nome}</div>
+                    <div style={{ flex: 2, minWidth: 90 }}>{f.cpf}</div>
+                    <div style={{ flex: 3, minWidth: 120 }}>{boxInfo}</div>
+                  </div>
+                  {/* Linha 2: Produtos e Ações */}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 4, alignItems: 'center' }}>
+                    <div style={{ flex: 1, minWidth: 80, color: '#e74c3c', fontWeight: 700 }}>Produtos: {totalProdutos}</div>
+                    <div style={{ flex: 2, minWidth: 100 }}>
+                      <button onClick={() => window.location.href = `/admin/feirante/${f._id}`} style={{ background: '#e67e22', color: '#fff', border: 'none', borderRadius: 6, padding: '8px 14px', fontWeight: 600, cursor: 'pointer', fontSize: 13 }}>Editar</button>
+                    </div>
+                  </div>
+                </div>
               );
             })}
-          </tbody>
-        </table>
+          </div>
+        </div>
       </div>
     </div>
   );
